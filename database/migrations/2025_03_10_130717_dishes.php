@@ -11,7 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('dishes', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom');
+            $table->string('image');
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('recette');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('dishes');
     }
 };
