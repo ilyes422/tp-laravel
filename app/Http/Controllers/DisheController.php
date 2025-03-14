@@ -41,7 +41,7 @@ class DisheController extends Controller
             'user_id' => auth()->id(),
             'recette' => $request->recette,
         ]);
-        auth()->notify(new DishOnline($dishe));
+        auth()->notify(new DishOnline());
 
 
         return response()->json($dishe, 201);
